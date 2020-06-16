@@ -1,16 +1,22 @@
 <div class="ui raised very padded text container segment">
     <h2 class="ui header center aligned">Create Account</h2>
 
-    <form [formGroup]="authForm" class="ui form">
+    <form (ngSubmit)="onSubmit()" [formGroup]="authForm" class="ui form">
         <app-input label="Username: " [control]="authForm.get('username')" inputType="text"></app-input>
         <app-input label="Password" [control]="authForm.get('password')" inputType="password"></app-input>
         <app-input label="Confirm Password" [control]="authForm.get('passwordConfirmation')" inputType="password">
         </app-input>
 
         <div class="ui red basic label"
-            *ngIf="authForm.get('password').touched && authForm.get('passwordConfirmation').touched ">
+            *ngIf="authForm.get('password').touched && authForm.get('passwordConfirmation').touched && authForm.errors">
             <p *ngIf="authForm.errors.passwordsDontMatch">
                 Password and confirm password must be same.
+            </p>
+            <p *ngIf="authForm.errors.noConnection">
+                No internet connection.
+            </p>
+            <p *ngIf="authForm.errors.unknownError">
+                Something went wrong
             </p>
         </div>
 
