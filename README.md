@@ -29,3 +29,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ##This app is made possible by 
 
 https://api.angular-email.com
+
+use	username@angular-email.com to send and receive email from gmail ( Only tested on gmail ).
